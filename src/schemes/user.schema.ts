@@ -33,8 +33,8 @@ export class User {
   @Prop({ type: String, required: true })
   password: string;
 
-  @Prop({ type: [Role], enum: Role, default: Role.Driver })
-  roles: Role[];
+  @Prop({ type: [String], enum: Role, default: [Role.Driver] })
+  roles: string[];
 
   @Prop({ type: ProfileSchema })
   profile: Profile;
@@ -42,14 +42,8 @@ export class User {
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Vehicle',
-    validate: {
-      validator: function (value: string) {
-        return (
-          !this.roles.includes(Role.Driver) ||
-          (this.roles.includes(Role.Driver) && value)
-        );
-      },
-      message: 'assignedVehicle is required for users with the Driver role',
+    required: function () {
+      return this.roles.includes(Role.Driver);
     },
   })
   assignVehicle: Vehicle;

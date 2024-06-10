@@ -8,8 +8,8 @@ export class Load {
   @Prop({ required: true })
   weight: number;
 
-  @Prop({ type: LoadStatus, enum: LoadStatus, default: LoadStatus.Processing })
-  status: LoadStatus;
+  @Prop({ type: String, enum: LoadStatus, default: LoadStatus.Processing })
+  status: string;
 
   @Prop({ default: Date.now })
   createdAt: Date;

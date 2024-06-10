@@ -41,11 +41,11 @@ export class Vehicle {
   licensePlate: string;
 
   @Prop({
-    type: VehicleColor,
+    type: String,
     enum: VehicleColor,
     default: VehicleColor.White,
   })
-  color: VehicleColor;
+  color: string;
 
   @Prop({ type: MaintenanceSchema })
   maintenance: Maintenance;
