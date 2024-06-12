@@ -5,7 +5,7 @@ import { Vehicle } from './vehicle.schema';
 
 @Schema()
 class Profile {
-  @Prop({ type: String })
+  @Prop({ type: String, required: true })
   firstName: string;
 
   @Prop({ type: String })
@@ -24,19 +24,19 @@ export type UserDocument = HydratedDocument<User>;
 
 @Schema()
 export class User {
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true, unique: true })
   username: string;
 
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true, unique: true })
   email: string;
 
   @Prop({ type: String, required: true })
   password: string;
 
-  @Prop({ type: [String], enum: Role, default: [Role.Driver] })
+  @Prop({ type: [String], enum: Role, required: true })
   roles: string[];
 
-  @Prop({ type: ProfileSchema })
+  @Prop({ type: ProfileSchema, required: true })
   profile: Profile;
 
   @Prop({
