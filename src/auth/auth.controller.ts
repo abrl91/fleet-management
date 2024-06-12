@@ -7,7 +7,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LocalAuthGuard } from './strategies/local/local-auth.guard';
+import { LocalAuthGuard } from './strategies/local/local.guard';
 import { RequestWithUser, UserWithoutPassword } from './types';
 import { JwtAuthGuard } from './strategies/jwt/jwt.guard';
 import {
