@@ -15,10 +15,12 @@ import {
   ApiOperation,
   ApiResponse,
   ApiBearerAuth,
+  ApiTags,
 } from '@nestjs/swagger';
 import { AuthDto } from './dtos/auth.dto';
 import { CreateUserDto } from 'src/users/dtos/create-user.dto';
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
