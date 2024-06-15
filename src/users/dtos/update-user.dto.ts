@@ -12,7 +12,7 @@ import { ProfileDto } from './profile.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 
-export class CreateUserDto {
+export class UpdateUserDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty({ type: String, required: true })
@@ -38,7 +38,6 @@ export class CreateUserDto {
   @IsOptional()
   @ApiProperty({
     type: [String],
-    enum: Role,
     required: false,
     default: [Role.Driver],
   })

@@ -3,7 +3,7 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class ProfileDto {
   @IsNotEmpty()
-  @ApiProperty({ type: String, required: true, description: 'First Name' })
+  @ApiProperty({ type: String, required: true })
   firstName: string;
 
   @IsString()
@@ -11,13 +11,12 @@ export class ProfileDto {
   @ApiProperty({
     type: String,
     required: false,
-    description: 'Last Name',
   })
   lastName?: string;
 
   @IsString()
   @IsNotEmpty()
-  @ApiProperty({ type: String, required: true, description: 'Phone' })
+  @ApiProperty({ type: String, required: true })
   phone: string;
 
   @IsString()
@@ -25,7 +24,6 @@ export class ProfileDto {
   @ApiProperty({
     type: String,
     required: false,
-    description: 'Address',
   })
   address?: string;
 }
