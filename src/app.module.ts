@@ -6,7 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './auth/roles.guard';
-import { TcpModule } from './shared/tcp/tcp.module';
+import { NotificationModule } from './notification/notification.module';
 
 @Module({
   imports: [
@@ -15,10 +15,10 @@ import { TcpModule } from './shared/tcp/tcp.module';
       envFilePath: ['.env.development.local', '.env'],
     }),
     MongooseModule.forRoot('mongodb://localhost/FleetManagement'),
-    TcpModule,
     AuthModule,
     DrivesModule,
     VehiclesModule,
+    NotificationModule,
   ],
   controllers: [],
   providers: [

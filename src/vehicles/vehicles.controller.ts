@@ -12,6 +12,7 @@ import { VehiclesService } from './vehicles.service';
 import { CreateVehicleDto } from './dtos/create-vehicle.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/strategies/jwt/jwt.guard';
+import { EventPattern } from '@nestjs/microservices';
 
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
@@ -31,7 +32,7 @@ export class VehiclesController {
   }
 
   @Post()
-  async createVehicle(vehicle: CreateVehicleDto) {
+  async createVehicle(@Body() vehicle: CreateVehicleDto) {
     return this.vehiclesService.create(vehicle);
   }
 
@@ -46,5 +47,10 @@ export class VehiclesController {
   @Delete(':id')
   async deleteVehicle(@Query('id') id: string) {
     return this.vehiclesService.delete(id);
+  }
+
+  @Get(':licensePlate/location')
+  async getVehicleLocation(@Query('licensePlate') licensePlate: string) {
+    return this.vehiclesService.getVehicleLocation(licensePlate);
   }
 }

@@ -12,9 +12,8 @@ export class TcpClientService extends ClientTCP implements OnModuleInit {
     this.connect().then(() => console.log('TCP client connected'));
   }
 
-  async sendMessage(message: string) {
-    const pattern = { cmd: 'message' };
-    const payload = message;
-    return this.send(pattern, payload);
+  async sendMessage(messagePattern: string, message: string) {
+    const pattern = { cmd: messagePattern };
+    return this.send(pattern, message);
   }
 }

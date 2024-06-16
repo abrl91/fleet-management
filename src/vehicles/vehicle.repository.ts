@@ -27,6 +27,10 @@ export class VehicleRepository
     return this.vehicleModel.findById(id).exec();
   }
 
+  async findOneBy(key: string, value: string): Promise<Vehicle> {
+    return this.vehicleModel.findOne({ [key]: value }).exec();
+  }
+
   async update(id: string, item: UpdateVehicleDto): Promise<Vehicle> {
     return this.vehicleModel.findByIdAndUpdate(id, item, { new: true }).exec();
   }

@@ -4,7 +4,7 @@ export const tcpServerOptions = {
   transport: Transport.TCP,
   options: {
     host: 'localhost',
-    port: 8877,
+    port: 3000,
   },
 };
 
@@ -12,6 +12,6 @@ export const tcpClientOptions = {
   transport: Transport.TCP,
   options: {
     host: 'localhost',
-    port: 8877,
+    port: 3000,
   },
 };
